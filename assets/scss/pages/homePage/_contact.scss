@@ -1,0 +1,102 @@
+.contact {
+	@include section-standards('Ffootball2.jpg');
+	padding: 0;
+
+	.contact-content {
+		width: 80%;
+		padding: 100px 10%;
+		margin: 0 auto;
+		@include flex(wrap, row, space-between, normal, normal);
+		@include boxsizing(); 
+		background-color: $primaryColor;
+		@include transform(translateY(-70%));
+
+		@include breakpoint(phone) { padding: 50px 10%; }
+		
+		@include breakpoint(iphone) { width: 100%; } 
+
+		& > div {
+			width: 45%;
+	
+			@include breakpoint(ipad) { 
+				width: 100%;
+				padding-bottom: 30px;
+			}
+
+			h3 {
+				@include textcharacteristics($white, 30px, 700, uppercase);
+				letter-spacing: 2px;
+				text-align: left;
+			}
+
+			p {
+				padding: 20px 0;
+				@include textcharacteristics(transparentize($white, 0.5), 14px, 400, initial, 25px);
+			}
+
+			span {
+				display: block;
+				padding: 0 0 10px;
+				@include textcharacteristics($white, 13px, 400, initial);
+			}
+		}
+	}
+
+	form {
+		width: 48%;
+		@include flex(wrap, row, space-between);
+	
+		@include breakpoint(ipad) { width: 100%; }
+
+		.form-group {
+			width: 100%;
+			padding: 0 0 10px;
+
+			&:first-child,
+			&:nth-child(2) {
+				width: 48%;
+
+				@include breakpoint(phone) { width: 100%; }
+			}
+
+			&.success {
+				input { 
+					border: 2px solid $greenyellow;
+				}
+			}
+
+			&.error {
+				input { border: 2px solid $red; }
+			}
+		}
+
+		input {
+			width: 100%;
+			padding: 8px 10px;
+			@include boxsizing();
+			border-style: none;
+			border: 2px solid transparent;
+			outline: none;
+			@include textcharacteristics($primaryColor,15px,300);
+		}
+
+		textarea {
+			width: 100%;
+			height: 100px;
+			padding: 8px 10px;
+			@include boxsizing();
+			outline: none;
+		}
+
+		.form-controls { width: 100%; }
+
+		button {
+			width: 100%;
+			padding: 10px 0;
+			border-style: none;
+			@include textcharacteristics($primaryColor,20px,500,normal);
+			font-family: 'edosz';
+			background-color: $secondaryColor;
+		}
+	}
+}

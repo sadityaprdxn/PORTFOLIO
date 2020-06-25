@@ -1,0 +1,152 @@
+.experience {
+	@include section-standards('mountain.jpg');
+	padding-bottom: 400px;
+
+	@include breakpoint(phone) { padding: 100px 0 400px; }
+
+	ul {
+		width: 80%;
+		padding: 100px 0;
+		margin: 0 auto;
+		position: relative;
+		clip-path: circle(0 at 50% 6%);
+		@include vendor(transition, 1s ease-in-out);
+
+		@include breakpoint(phone) { width: 100%; }
+
+		@include breakpoint(iphone) { 
+			width: 90%;
+			margin: 0 0 0 10%;
+			clip-path: circle(0 at 0 6%);
+		}
+
+		&.active { clip-path: circle(150% at 0 6%); }
+	}
+
+	li {
+		width: 100%;
+		position: relative;
+
+		@include breakpoint(iphone) { padding-bottom: 50px; }
+		
+		&:nth-child(even) .year-content{
+			width: 50%;
+			padding: 0 8% 0 0;
+			@include boxsizing();
+			text-align: right;
+
+			@include breakpoint(iphone) { 
+				width: 100%;
+				padding: 0 0 0 8%;
+				text-align: left;
+			}
+
+			&::before {
+				content: ' ';
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				@include transform(translateX(-50%));
+				background-color: $secondaryColor;
+				@include position(absolute, 1, 0, auto, auto, 50%);
+
+				@include breakpoint(iphone) {
+					left: 0;
+				}
+			}
+
+			&::after {
+				content: ' ';
+				width: 3px;
+				height: 102%;
+				@include transform(translateX(-50%));
+				background-color: $secondaryColor;
+				@include position(absolute, 1, 0, auto, auto, 50%);
+				
+				@include breakpoint(iphone) {
+					left: 0;
+				}
+			}
+		}
+
+		&:nth-child(odd) .year-content{
+			float: right;
+			width: 50%;
+			padding: 0 0 0 8%;
+			@include boxsizing();
+
+			
+			@include breakpoint(iphone) { 
+				width: 100%;
+				float: none;
+			}
+
+			&::before {
+				content: ' ';
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				@include transform(translateX(-50%));
+				background-color: $secondaryColor;
+				@include position(absolute, 1, 0, auto, auto, 50%);
+
+				@include breakpoint(iphone) {
+					left: 0;
+				}
+			}
+
+			&::after {
+				content: ' ';
+				width: 3px;
+				height: 103%;
+				@include transform(translateX(-50%));
+				background-color: $secondaryColor;
+				@include position(absolute, 1, 0, auto, auto, 50%);
+
+				@include breakpoint(iphone) {
+					left: 0;
+				}
+			}
+
+
+		}
+
+		&:last-child .year-content::after { content: none; }
+	}
+
+	.year-content {
+
+		span:first-child { 					
+			position: relative;
+			@include textcharacteristics($secondaryColor,15px,700,uppercase);
+			opacity: 0;
+		}
+
+		h5 {
+			padding: 10px 0 20px;
+			@include textcharacteristics($white,20px,500,uppercase);
+			opacity: 0;
+		}
+
+		span:nth-child(3) {
+			@include textcharacteristics($white,15px,500,capitalize);
+			opacity: 0;
+		}
+
+		p {
+			padding: 10px 0 0;
+			@include textcharacteristics(transparentize($white, 0.4), 14px, 400, normal);
+			opacity: 0;
+		}
+
+		&.active {
+			h5,
+			span:first-child,
+			span:nth-child(3),
+			p { 
+				opacity: 1;
+				@include vendor(transition, 1s ease-in-out);
+			}
+		}
+	}
+}

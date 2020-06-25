@@ -1,0 +1,42 @@
+footer {
+	background: $primaryColor;
+
+  	ul { 
+		padding: 1.5% 0;
+		text-align: center;
+	}
+
+	li { 
+		padding: 0 2%;
+		display: inline-block;
+
+		a {
+			text-indent: -9999px;
+			position: relative;
+
+			
+			&.facebook::before { content:"\f082"; }
+
+			&.instagram::before { content:"\f16d"; }
+
+			&.twitter::before { content:"\f099"; }
+
+			&.youtube::before { content:"\f0e1"; }
+
+			&::before {
+				padding: 2px;
+				font-family: "fontAwesome";
+				text-indent: 0;
+				float: right;
+				font-size: 20px;
+				font-weight: 200;
+				color: rgba(255,255,255,0.5);
+				@include transition(0.3s);
+			}
+
+			&:hover {
+				&::before { color: $secondaryColor; }
+			}
+		}
+	}
+}

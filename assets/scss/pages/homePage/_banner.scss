@@ -1,0 +1,62 @@
+.banner {
+	@include section-standards('chai.jpg');
+
+	@include breakpoint(phone) { padding: 150px 0; }
+
+	.banner__content {
+		width: 65%;
+		margin: 0 auto;
+
+		@include breakpoint(ipad) { width: 80%; }
+
+		@include breakpoint(phone) { width: 100%; }
+
+		h2 {
+			padding-bottom: 10px;
+			@include boxsizing();
+			@include textcharacteristics($white,60px,900,uppercase);
+			letter-spacing: 10px;
+
+			@include breakpoint(phone) { 
+				font-size: 40px;
+				letter-spacing: 5px;
+			}
+
+			span { 
+				display: inline;
+				@include textcharacteristics($secondaryColor,60px,900,uppercase);
+				letter-spacing: 0;
+
+				@include breakpoint(phone) { 
+					font-size: 40px;
+					letter-spacing: 5px;
+				}
+			}
+ 		}
+
+		span {
+			display: block;
+			@include textcharacteristics($white,17px,100,uppercase);
+
+			@include breakpoint(phone) { font-size: 15px; }
+		}
+
+		.resume {
+			padding: 5px 25px;
+			margin-top: 30px;
+			display: inline-block;
+			font-family: 'edosz';
+			@include textcharacteristics($black, 20px, normal, normal, 30px);
+			background-color: $secondaryColor;
+			border-radius: 5px;
+			@include transition(0.3s);
+
+			&:hover { background-color: lighten($secondaryColor , 20%);	}
+
+			@include breakpoint(phone) {
+				padding: 3px 15px;
+				font-size: 15px;
+			}
+		}
+	}
+}

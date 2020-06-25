@@ -1,0 +1,79 @@
+.profession {
+	@include section-standards('card1.jpg');
+
+	@include breakpoint(phone) { padding: 100px 0; }
+
+	ul { 
+		padding: 100px 0 0;
+		
+		@include breakpoint(phone) { padding: 50px 0 0; }
+	 }	
+
+	li { 
+		width: 100%;
+		padding: 15px 0;
+		@include flex(wrap, row, flex-start, center, center);
+
+		h4 {
+			width: 30%;
+			@include textcharacteristics($white, 15px, 300, uppercase);
+			text-align: right;
+
+			@include breakpoint(iphone) { 
+				width: 100%;
+				padding-bottom: 10px;
+				text-align: left;
+			}
+		}
+
+		.progress-bar {
+			width: 50%;
+			margin-left: 30px;
+			@include flex(nowrap, row, flex-start, center, center);
+
+			@include breakpoint(iphone) {
+				width: 100%;
+				margin-left: 0;
+			}
+
+			span:first-child {
+				width: 0;
+				height: 12px;
+				margin-right: 10px;
+				display: inline-block;
+				background-color: $secondaryColor;
+				text-indent: -9999px;
+			}
+
+			span:last-child {
+				@include textcharacteristics($white, 15px, 300, uppercase);
+			}
+		}
+	}
+}
+
+
+h3 {
+	@include textcharacteristics($white, 50px, 800, uppercase);
+	letter-spacing: 8px;
+	text-align: center;
+	@include vendor(text-shadow, 5px 10px 15px $shadow);
+
+	@include breakpoint(phone) {
+		font-size: 40px;
+		letter-spacing: 5px;
+	}
+
+	& + span {
+		display: block;
+		text-align: center;
+		@include textcharacteristics($white, 17px, 100, uppercase);
+		word-spacing: 5px;
+
+		a { color: $secondaryColor; }
+
+		@include breakpoint(phone) {
+			font-size: 13px;
+		}
+	}
+}

@@ -1,0 +1,223 @@
+header {
+	width: 100%;
+	@include position(absolute, 0, 0, auto, auto, 0);
+	@include vendor(box-shadow, 5px 10px 15px $shadow);
+	
+	@include breakpoint('phone') { 
+		padding: 15px 0;
+		position: fixed;
+		z-index: 1;
+		@include vendor(transition,0.5s ease-in-out);
+
+		&.active { 
+			background-color: $shadow;
+			box-shadow: none;
+		}
+	}
+
+	.wrapper {
+		@include flex(wrap,row,space-between,center,center);
+	}
+
+	//LOGO STYLING
+	h1 { 
+		width: 90px;
+
+		@include breakpoint(iphone) { width: 70px; }
+	}
+
+	//NAVBAR STYLING
+	.navbar {
+		li {
+			position: relative;
+			cursor: pointer;
+			@include vendor(transition, 0.2s ease-in-out);
+
+			a {
+				padding: 25px 10px;
+				@include textcharacteristics($white, 14px, 600, uppercase);
+			}
+
+			@include reverse-breakpoint(notebook) {
+				&:hover {  
+					background-color: $shadow;
+					
+					&::before { background-color: $secondaryColor }
+				}
+			}
+
+			&.active {  
+				background-color: $shadow;
+				
+				&::before { background-color: $secondaryColor }
+			}
+
+			&::before {
+				content: " ";
+				width: 100%;
+				height: 4px;
+				@include position(absolute,0,auto,auto,0,0);
+				background-color: transparent;
+				@include transition(0.2s);
+			}
+
+			&:last-child {
+				border-top-right-radius: 7px;
+				border-bottom-left-radius: 7px;
+				@include transition(0.3s);
+
+				&.active { background-color: $shadow; }
+
+				&::before { content: none; }
+
+				a { 
+					padding: 5px 10px;
+					cursor: pointer;
+				}
+			}
+		}
+
+		@include breakpoint('phone') {
+			width: 100%;
+			height: 100vh;
+			padding: 100px 0;
+			@include boxsizing;
+			@include position(absolute,1,0,auto,auto,0);
+			background-color: $secondaryColor;
+			clip-path: circle( 0% at 100% 0);
+			@include transition(0.3s);
+
+			li {
+				display: block;
+				text-align: center;
+
+				a { color: $primaryColor; }
+
+				&:last-child { display: none; }
+			}
+
+			&.active {	clip-path: circle( 200% at 100% 0);	}
+		}
+	}
+
+	//ELLIPSIS STYLING
+	.ellipsis { 
+		text-indent: -9999px;
+
+		&::before {
+			content: "\f142";
+			padding: 2px;
+			font-family: "fontAwesome";
+			text-indent: 0;
+			float: right;
+			font-size: 15px;
+			color: $white;
+			@include transition(0.3s);
+		}
+	}
+}
+
+
+//HAMBURGER STYLING
+.hamburger {
+	display: none;
+	width: 40px;
+	padding: 8px;
+	position: relative;
+	z-index: 5;
+	box-sizing: border-box;
+	cursor: pointer;
+
+	span {
+    width: 100%;
+    height: 3px;
+    margin-bottom: 5px;
+    display: block;
+    background-color: $white;
+	text-indent: -9999px;
+	@include vendor(transition , 0.3s ease-in-out);
+	}
+
+	span:last-child { margin: 0; }
+
+	@include breakpoint('phone') { 
+		display: block;
+
+		&.active {
+			span { background-color: $primaryColor; } 
+
+			span:first-child { @include transform(translateY(8px) rotate(135deg)); }
+	
+			span:last-child { @include transform(translateY(-8px) rotate(-135deg));	}
+	
+			span:nth-child(2) { @include transform(scale(0)); }	
+		}
+	}
+}
+
+//SOCIAL LINKS
+.social-links {
+	padding: 13px 10px;
+	border-radius: 50px;
+	display: none;
+	@include position(absolute, 1, 110%, 6%, auto, auto);
+	background-color: $transperentWhite;
+
+	&.active { display: block; }
+
+	@include breakpoint(phone) { display: none; }
+
+	li {
+		display: block;
+		padding-bottom: 7px;
+
+		&:last-child { padding: 0; }
+	}
+
+	a {
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		position: relative;
+		@include vendor(transition, 0.3s ease-in-out);
+		text-indent: -9999px;
+
+		&::before {
+			@include position(absolute,1, 50%, auto, auto, 50%);
+			font-size: 15px;
+			font-family: 'fontAwesome';
+			@include vendor(transform, translateX(-50%) translateY(-50%));
+			text-indent: 0;
+			color: $white;
+			@include vendor(transition, 0.3s ease-in-out);
+		}
+
+		@include reverse-breakpoint(notebook) {
+			&:hover { @include vendor(box-shadow, 5px 10px 15px $shadow); }
+		}
+	}
+
+	.facebook { 
+		@include vendor(background-image, linear-gradient( 135deg, #1F2F98 ,	#4ADEDE )); 
+
+		&::before { content: "\f09a" }
+	}
+  
+	.instagram { 
+	  @include vendor(background-image , linear-gradient( 135deg, #240E8B ,	#F04393 )); 
+
+	  &::before { content:"\f16d"; }
+	}
+	
+	.twitter { 
+	  @include vendor(background-image, linear-gradient( 135deg, #205072 ,	#56C596 )); 
+
+	  &::before { content:"\f099"; }
+	}
+	
+	.youtube { 
+	  @include vendor(background-image,  linear-gradient( 135deg, #F04393 ,	#F9C449 )); 
+
+	  &::before { content:"\f0e1"; }
+	}
+}
