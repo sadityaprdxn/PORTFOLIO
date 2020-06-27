@@ -51,16 +51,16 @@ main { animation: mainpopup 3s forwards; }
 
 .welcome {
 	width: 100%;
-	height: 100vh;
-	@include position(fixed,5,0,0,0,0);
-	background:  url('../images/Dwelcome.jpg') 50% 50% no-repeat;
-	background-size: cover;
-	text-indent: -9999px;
+  height: 100vh;
+  @include flex(wrap,row,center,center,center);
+  @include position(fixed,5,0,0,0,0);
+  background-color: $litePrimaryColor;
+  @include textcharacteristics($black, 60px, 400, uppercase);
+  font-family: 'edosz';
+	@include vendor(text-shadow, 5px 10px 15px $shadow);
 	animation: slide-up 4s ease-in 3s forwards;
 
 	@include breakpoint(phone) {
-		background:  url('../images/Mwelcome.jpeg') 50% 50% no-repeat;
-		background-size: cover;
 	}
 }
 
