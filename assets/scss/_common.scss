@@ -55,10 +55,9 @@ main { animation: mainpopup 3s forwards; }
   @include flex(wrap,row,center,center,center);
   @include position(fixed,5,50%,auto,auto,50%);
   @include vendor(transform, translateX(-50%) translateY(-50%));
-  background-color: $secondaryColor;
-  @include textcharacteristics($primaryColor, 60px, 400, uppercase);
+  background-color: #062844;
+  @include textcharacteristics(#021022, 45px, 400, uppercase);
   font-family: 'edosz';
-	@include vendor(text-shadow, 5px 10px 15px $shadow);
 	animation: slide-up 4s ease-in 3s forwards;
 
 	@include breakpoint(phone) {

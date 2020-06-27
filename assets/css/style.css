@@ -179,17 +179,12 @@ main {
   bottom: auto;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  background-color: #facc00;
-  color: #333B50;
-  font-size: 60px;
+  background-color: #062844;
+  color: #021022;
+  font-size: 45px;
   font-weight: 400;
   text-transform: uppercase;
   font-family: 'edosz';
-  -webkit-text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
-  -moz-text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
-  -ms-text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
-  -o-text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
-  text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.5);
   animation: slide-up 4s ease-in 3s forwards;
 }
 
