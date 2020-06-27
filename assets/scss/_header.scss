@@ -1,6 +1,6 @@
 header {
 	width: 100%;
-	@include position(absolute, 0, 0, auto, auto, 0);
+	@include position(absolute, 2, 0, auto, auto, 0);
 	@include vendor(box-shadow, 5px 10px 15px $shadow);
 	
 	@include breakpoint('phone') { 

@@ -66,14 +66,14 @@
 .welcome {
 	width: 100%;
 	height: 100vh;
-	@include position(absolute,2,0,0,0,0);
-	background:  url('../images/Dwelcome.jpeg') 50% 50% no-repeat;
+	@include position(fixed,5,0,0,0,0);
+	background:  url('../images/Dwelcome.jpg') 50% 50% no-repeat;
 	background-size: cover;
 	text-indent: -9999px;
-	animation: slide-up 4s ease-in 2s forwards;
+	animation: slide-up 4s ease-in 3s forwards;
 
 	@include breakpoint(phone) {
-		background:  url('../images/Mwelcome.png') 50% 50% no-repeat;
+		background:  url('../images/Mwelcome.jpeg') 50% 50% no-repeat;
 		background-size: cover;
 	}
 }
@@ -97,7 +97,7 @@
 }
 
 .welcome-user {
-	animation: no-scroll 6s ease-in-out forwards;
+	animation: no-scroll 7s ease-in-out forwards;
 }
 
 @keyframes no-scroll {
