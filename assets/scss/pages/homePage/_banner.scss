@@ -78,31 +78,4 @@
 	}
 }
 
-@keyframes slide-up {
-	0% { 
-		opacity: 1;
-		z-index: 2;
-	}
-
-	99% { 
-		opacity: 0;
-		z-index: 2;
-	}
-
-	100% { 
-		opacity: 0;
-		display: none;
-		z-index: -1;
-	}
-}
-
-.welcome-user {
-	animation: no-scroll 7s ease-in-out forwards;
-}
-
-@keyframes no-scroll {
-	0% { overflow: hidden;}
-	99% { overflow: hidden; }
-	100% { overflow: auto; }
-}
 
