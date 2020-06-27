@@ -48,6 +48,22 @@ main { animation: mainpopup 3s forwards; }
   100% { display: block; }
 }
 
+
+.welcome {
+	width: 100%;
+	height: 100vh;
+	@include position(fixed,5,0,0,0,0);
+	background:  url('../images/Dwelcome.jpg') 50% 50% no-repeat;
+	background-size: cover;
+	text-indent: -9999px;
+	animation: slide-up 4s ease-in 3s forwards;
+
+	@include breakpoint(phone) {
+		background:  url('../images/Mwelcome.jpeg') 50% 50% no-repeat;
+		background-size: cover;
+	}
+}
+
 @keyframes slide-up {
 	0% { 
 		opacity: 1;
