@@ -148,15 +148,18 @@ li {
 }
 
 main {
-  animation: mainpopup 7s forwards;
+  animation: mainpopup 3s forwards;
 }
 
 @keyframes mainpopup {
   0% {
-    opacity: 0;
+    display: none;
+  }
+  99% {
+    display: none;
   }
   100% {
-    opacity: 1;
+    display: block;
   }
 }
 

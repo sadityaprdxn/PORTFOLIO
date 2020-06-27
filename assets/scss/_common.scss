@@ -40,11 +40,12 @@ li {
 .none { display: none; }
 .no-scroll { overflow: hidden; }
 
-main { animation: mainpopup 7s forwards; }
+main { animation: mainpopup 3s forwards; }
 
 @keyframes mainpopup {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% { display: none; }
+  99% { display: none; }
+  100% { display: block; }
 }
 
 @keyframes slide-up {
