@@ -51,8 +51,10 @@
 			border-radius: 5px;
 			@include transition(0.3s);
 
-			&:hover { background-color: lighten($secondaryColor , 20%);	}
-
+			@include reverse-breakpoint(notebook) {
+				&:hover { background-color: lighten($secondaryColor , 20%);	}
+			}
+			
 			@include breakpoint(phone) {
 				padding: 3px 15px;
 				font-size: 15px;
@@ -60,3 +62,47 @@
 		}
 	}
 }
+
+.welcome {
+	width: 100%;
+	height: 100vh;
+	@include position(absolute,2,0,0,0,0);
+	background:  url('../images/Dwelcome.jpeg') 50% 50% no-repeat;
+	background-size: cover;
+	text-indent: -9999px;
+	animation: slide-up 4s ease-in 2s forwards;
+
+	@include breakpoint(phone) {
+		background:  url('../images/Mwelcome.png') 50% 50% no-repeat;
+		background-size: cover;
+	}
+}
+
+@keyframes slide-up {
+	0% { 
+		opacity: 1;
+		z-index: 2;
+	}
+
+	99% { 
+		opacity: 0;
+		z-index: 2;
+	}
+
+	100% { 
+		opacity: 0;
+		display: none;
+		z-index: -1;
+	}
+}
+
+.welcome-user {
+	animation: no-scroll 6s ease-in-out forwards;
+}
+
+@keyframes no-scroll {
+	0% { overflow: hidden;}
+	99% { overflow: hidden; }
+	100% { overflow: auto; }
+}
+

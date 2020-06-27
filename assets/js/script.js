@@ -7,6 +7,7 @@ window.onload = function () {
 		console.log('hi');
 
 		// for DOM manipulation
+		const html = document.querySelector('html');
 		const header = document.querySelector('header');
 		const hamburger = document.querySelector('.hamburger');
 		const navbar = document.querySelector('.navbar');
@@ -38,14 +39,18 @@ window.onload = function () {
 		hamburger.addEventListener('click', () => {
 			hamburger.classList.toggle('active');
 			navbar.classList.toggle('active');
+			html.classList.toggle('no-scroll');
+			html.classList.remove('welcome-user');
 		});
 
 		// function for closing the navbar on click of the navbar links
 		navbarLinks.forEach(element => {
 			element.addEventListener('click', () => {
 				if (hamburger.classList.contains('active') || navbar.classList.contains('active')) {
+					html.classList.remove('no-scroll');
 					hamburger.classList.remove('active');
 					navbar.classList.remove('active');
+					html.classList.remove('welcome-user');
 				}
 			});
 		});

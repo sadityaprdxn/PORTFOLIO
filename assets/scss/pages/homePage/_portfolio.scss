@@ -35,11 +35,13 @@
 			@include transition(0.3s);
 			background-color: $transperentSecondaryColor;
 		}
-
-		&:hover {
-			img { @include vendor(transform, scale(1.2)); }
-			
-			&::after { opacity: 1; }
+		
+		@include reverse-breakpoint(notebook) {
+			&:hover {
+				img { @include vendor(transform, scale(1.2)); }
+				
+				&::after { opacity: 1; }
+			}
 		}
 	}
 }

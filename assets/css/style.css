@@ -143,135 +143,10 @@ li {
   display: none;
 }
 
-/* INDEX PAGE STYLING STARTS HERE */
-/*=================================
-  landing page styling starts here
-=================================*/
-.landing-page {
-  background-color: #010013;
+.no-scroll {
+  overflow: hidden;
 }
 
-.landing-page .wrapper {
-  width: 92%;
-}
-
-.parallax-image {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  z-index: 0;
-  top: 0;
-  left: 0;
-  text-indent: -9999px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, #010013), url("../images/chai.jpg") 50% 50% no-repeat;
-  background-size: cover;
-  filter: blur(4px);
-}
-
-.heading {
-  width: 100%;
-  position: absolute;
-  z-index: 1;
-  top: 40%;
-  left: 0;
-}
-
-.heading ul {
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.horizontal-line {
-  text-indent: -9999px;
-  width: 43%;
-  height: 0;
-  border-bottom: 1px solid #FFF;
-  opacity: 0;
-}
-
-.landing-page h1 {
-  font-family: 'amel';
-  color: #000;
-  font-size: 60px;
-}
-
-.landing-page h1 a {
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.9);
-}
-
-.landing-page h1 span {
-  display: block;
-  font-family: 'Montserrat';
-  font-size: 15px;
-  line-height: 0px;
-  display: flex;
-  justify-content: center;
-  text-shadow: 5px 10px 15px rgba(0, 0, 0, 0.9);
-}
-
-.content {
-  padding: 10% 0 5%;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.content p {
-  padding-bottom: 2%;
-  color: #FFF;
-  font-weight: 100;
-  text-align: left;
-  font-family: 'edosz';
-}
-
-.content p span {
-  padding: 0 0.5%;
-  font-family: 'brusher';
-  color: #facc00;
-  font-size: 30px;
-}
-
-.content a {
-  padding: 0.2% 4%;
-  color: #FFF;
-  font-family: "brusher";
-  font-size: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
-  transition: 0.3s ease-in;
-}
-
-.content a:hover {
-  color: #000;
-  background-color: #FFF;
-}
-
-/* INDEX PAGE STYLING ENDS HERE */
-@media only screen and (max-width: 540px) {
-  .content {
-    height: 100vh;
-    padding: 25% 0 0;
-    box-sizing: border-box;
-  }
-  .content p {
-    padding-bottom: 10%;
-  }
-  .content a {
-    padding: 1% 15%;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-  }
-}
-
-/*=================================
-  landing page styling ends here
-=================================*/
 header {
   width: 100%;
   position: absolute;
@@ -289,7 +164,7 @@ header {
   header {
     padding: 15px 0;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     transition: 0.5s ease-in-out;
   }
   header.active {
@@ -395,7 +270,7 @@ header .navbar li:last-child a {
     left: 0;
     background-color: #facc00;
     clip-path: circle(0% at 100% 0);
-    transition: 0.3s ease-in-out;
+    transition: 0.6s ease-in-out;
   }
   header .navbar li {
     display: block;
@@ -674,14 +549,70 @@ header .ellipsis::before {
   transition: 0.3s ease-in-out;
 }
 
-.banner .banner__content .resume:hover {
-  background-color: #ffe261;
+@media screen and (min-width: 1024px) {
+  .banner .banner__content .resume:hover {
+    background-color: #ffe261;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .banner .banner__content .resume {
     padding: 3px 15px;
     font-size: 15px;
+  }
+}
+
+.welcome {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../images/Dwelcome.jpeg") 50% 50% no-repeat;
+  background-size: cover;
+  text-indent: -9999px;
+  animation: slide-up 4s ease-in 2s forwards;
+}
+
+@media screen and (max-width: 767px) {
+  .welcome {
+    background: url("../images/Mwelcome.png") 50% 50% no-repeat;
+    background-size: cover;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 1;
+    z-index: 2;
+  }
+  99% {
+    opacity: 0;
+    z-index: 2;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+    z-index: -1;
+  }
+}
+
+.welcome-user {
+  animation: no-scroll 6s ease-in-out forwards;
+}
+
+@keyframes no-scroll {
+  0% {
+    overflow: hidden;
+  }
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: auto;
   }
 }
 
@@ -882,12 +813,13 @@ h3 + span a {
   background-color: rgba(51, 59, 80, 0.5);
 }
 
-.portfolio li:hover img {
-  transform: scale(1.2);
-}
-
-.portfolio li:hover::after {
-  opacity: 1;
+@media screen and (min-width: 1024px) {
+  .portfolio li:hover img {
+    transform: scale(1.2);
+  }
+  .portfolio li:hover::after {
+    opacity: 1;
+  }
 }
 
 .experience {
@@ -1294,6 +1226,8 @@ footer li a::before {
   transition: 0.3s ease-in-out;
 }
 
-footer li a:hover::before {
-  color: #facc00;
+@media screen and (min-width: 1024px) {
+  footer li a:hover::before {
+    color: #facc00;
+  }
 }

@@ -34,8 +34,11 @@ footer {
 				@include transition(0.3s);
 			}
 
-			&:hover {
-				&::before { color: $secondaryColor; }
+			
+			@include reverse-breakpoint(notebook) {
+				&:hover {
+					&::before { color: $secondaryColor; }
+				}
 			}
 		}
 	}
