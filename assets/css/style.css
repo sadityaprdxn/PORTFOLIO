@@ -148,7 +148,7 @@ li {
 }
 
 main {
-  animation: mainpopup 3s forwards;
+  animation: mainpopup 1s forwards;
 }
 
 @keyframes mainpopup {
@@ -178,8 +178,8 @@ main {
   right: auto;
   bottom: auto;
   left: 0;
-  background-color: #cbe7ff;
-  animation: slide-up 4s ease-in 3s forwards;
+  background-color: #ddeefd;
+  animation: slide-up 2s ease-in 1s forwards;
 }
 
 .welcome figure {
@@ -209,7 +209,7 @@ main {
 }
 
 .welcome-user {
-  animation: no-scroll 7s ease-in-out forwards;
+  animation: no-scroll 3s ease-in-out forwards;
 }
 
 @keyframes no-scroll {
