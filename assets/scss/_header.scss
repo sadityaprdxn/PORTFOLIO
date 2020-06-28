@@ -23,7 +23,7 @@ header {
 	h1 { 
 		width: 90px;
 
-		@include breakpoint(iphone) { width: 70px; }
+		@include breakpoint(iphone) { width: 60px; }
 	}
 
 	//NAVBAR STYLING
