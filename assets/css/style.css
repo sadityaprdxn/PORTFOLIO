@@ -178,7 +178,7 @@ main {
   right: auto;
   bottom: auto;
   left: 0;
-  background-color: #ddeefd;
+  background-color: #ddeeff;
   animation: slide-up 2s ease-in 1s forwards;
 }
 
@@ -189,6 +189,12 @@ main {
 @media screen and (max-width: 767px) {
   .welcome figure {
     width: 70px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .welcome {
+    background-color: #e8f4ff;
   }
 }
 
@@ -645,6 +651,7 @@ header .ellipsis::before {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  padding: 150px 0;
 }
 
 @media screen and (max-width: 767px) {
@@ -654,7 +661,7 @@ header .ellipsis::before {
 }
 
 .profession ul {
-  padding: 100px 0 0;
+  padding: 50px 0 0;
 }
 
 @media screen and (max-width: 767px) {
@@ -767,7 +774,7 @@ h3 + span a {
 }
 
 .portfolio {
-  padding: 200px 0;
+  padding: 150px 0;
   background: #333B50;
 }
 
@@ -821,7 +828,11 @@ h3 + span a {
   transition: 0.3s ease-in-out;
 }
 
-.portfolio li::after {
+.portfolio a {
+  display: block;
+}
+
+.portfolio a::after {
   content: ' ';
   width: 100%;
   height: 100%;
@@ -837,10 +848,10 @@ h3 + span a {
 }
 
 @media screen and (min-width: 1024px) {
-  .portfolio li:hover img {
+  .portfolio a:hover img {
     transform: scale(1.2);
   }
-  .portfolio li:hover::after {
+  .portfolio a:hover::after {
     opacity: 1;
   }
 }
@@ -1201,6 +1212,56 @@ h3 + span a {
   text-transform: normal;
   font-family: 'edosz';
   background-color: #facc00;
+}
+
+.project-banner {
+  position: relative;
+}
+
+.project-banner .wrapper {
+  width: 100%;
+}
+
+.project-banner img:last-of-type {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .project-banner img:first-of-type {
+    display: none;
+  }
+  .project-banner img:last-of-type {
+    display: block;
+  }
+}
+
+.project-banner h3 {
+  position: absolute;
+  z-index: 1;
+  top: 85%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  color: #FFF;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.info p {
+  padding: 50px 5%;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  margin: 50px 0;
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: normal;
+  text-align: justify;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 footer {

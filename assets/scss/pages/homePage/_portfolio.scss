@@ -1,5 +1,5 @@
 .portfolio {
-	padding: 200px 0;
+	padding: 150px 0;
 	background: $primaryColor;
 	
 	@include breakpoint(phone) { padding: 100px 0; }
@@ -25,7 +25,11 @@
 		figure { overflow: hidden; }
 
 		img { @include transition(0.3s); }
+	}
 
+	a { 
+		display: block;
+		
 		&::after {
 			content: ' ';
 			width: 100%;
@@ -35,7 +39,7 @@
 			@include transition(0.3s);
 			background-color: $transperentSecondaryColor;
 		}
-		
+	
 		@include reverse-breakpoint(notebook) {
 			&:hover {
 				img { @include vendor(transform, scale(1.2)); }

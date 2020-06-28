@@ -1,0 +1,20 @@
+.project-banner {
+    position: relative;
+
+    .wrapper { width: 100%; }
+
+    img:last-of-type { display: none; }
+
+    @include breakpoint(phone) { 
+        img:first-of-type { display: none; }
+        img:last-of-type { display: block; }
+    }
+
+    h3 {
+        @include position(absolute, 1, 85%, auto, auto, 50%);
+        @include textcharacteristics($white, 20px, 700, uppercase);
+        letter-spacing: 2px;
+        word-spacing: 2px;
+        @include vendor(transform, translateX(-50%) translateY(-50%));
+    }
+}

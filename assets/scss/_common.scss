@@ -63,6 +63,8 @@ main { animation: mainpopup 1s forwards; }
     @include breakpoint(phone) { width: 70px; }
   }
 
+  @include breakpoint(phone) { background-color: $mobileLitePrimaryColor; }
+
 }
 
 @keyframes slide-up {

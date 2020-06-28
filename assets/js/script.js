@@ -3,57 +3,58 @@
 window.onload = function () {
 	const page = document.querySelector('.container');
 
+	// for DOM manipulation
+	const html = document.querySelector('html');
+	const header = document.querySelector('header');
+	const hamburger = document.querySelector('.hamburger');
+	const navbar = document.querySelector('.navbar');
+	const ellipsis = document.querySelector('.ellipsis');
+	const socialLinks = document.querySelector('.social-links');
+	let navbarLinks = Array.from(document.querySelectorAll('ul.navbar li:not(:last-child) a'));
+	
+
+	// function for activating the social icons
+	ellipsis.addEventListener('click', () => {
+		ellipsis.parentElement.classList.toggle('active');
+		socialLinks.classList.toggle('active');
+	});
+
+	// function for closing the social icons
+	window.addEventListener('click', e => {
+		if (e.target !== ellipsis) {
+			ellipsis.parentElement.classList.remove('active');
+			socialLinks.classList.remove('active');
+		}
+	});
+
+	// function for activating the navbar
+	hamburger.addEventListener('click', () => {
+		hamburger.classList.toggle('active');
+		navbar.classList.toggle('active');
+		html.classList.toggle('no-scroll');
+		html.classList.remove('welcome-user');
+	});
+
+	// function for closing the navbar on click of the navbar links
+	navbarLinks.forEach(element => {
+		element.addEventListener('click', () => {
+			if (hamburger.classList.contains('active') || navbar.classList.contains('active')) {
+				html.classList.remove('no-scroll');
+				hamburger.classList.remove('active');
+				navbar.classList.remove('active');
+				html.classList.remove('welcome-user');
+			}
+		});
+	});
+
 	if (page.classList.contains('home-page')) {
 		console.log('hi');
 
-		// for DOM manipulation
-		const html = document.querySelector('html');
-		const header = document.querySelector('header');
-		const hamburger = document.querySelector('.hamburger');
-		const navbar = document.querySelector('.navbar');
-		const ellipsis = document.querySelector('.ellipsis');
-		const socialLinks = document.querySelector('.social-links');
-		let navbarLinks = Array.from(document.querySelectorAll('ul.navbar li:not(:last-child) a'));
 		const professionList = document.querySelector('.profession ul');
 		let professionListAt = (professionList.offsetTop + professionList.offsetHeight * 0.5);
 		const experienceList = document.querySelector('.experience ul');
 		let experienceListAt = (experienceList.offsetTop + experienceList.offsetHeight * 0.15);
 		let experienceListLi = Array.from(experienceList.querySelectorAll('li div.year-content'));
-
-
-		// function for activating the social icons
-		ellipsis.addEventListener('click', () => {
-			ellipsis.parentElement.classList.toggle('active');
-			socialLinks.classList.toggle('active');
-		});
-
-		// function for closing the social icons
-		window.addEventListener('click', e => {
-			if (e.target !== ellipsis) {
-				ellipsis.parentElement.classList.remove('active');
-				socialLinks.classList.remove('active');
-			}
-		});
-
-		// function for activating the navbar
-		hamburger.addEventListener('click', () => {
-			hamburger.classList.toggle('active');
-			navbar.classList.toggle('active');
-			html.classList.toggle('no-scroll');
-			html.classList.remove('welcome-user');
-		});
-
-		// function for closing the navbar on click of the navbar links
-		navbarLinks.forEach(element => {
-			element.addEventListener('click', () => {
-				if (hamburger.classList.contains('active') || navbar.classList.contains('active')) {
-					html.classList.remove('no-scroll');
-					hamburger.classList.remove('active');
-					navbar.classList.remove('active');
-					html.classList.remove('welcome-user');
-				}
-			});
-		});
 
 		// window on scroll functions
 		window.addEventListener('scroll', () => {
