@@ -1,7 +1,7 @@
 .banner {
 	@include section-standards('chai.jpg');
 
-	@include breakpoint(phone) { padding: 150px 0; }
+	@include breakpoint(phone) { padding: 250px 0; }
 
 	.banner__content {
 		width: 65%;

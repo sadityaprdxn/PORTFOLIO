@@ -549,7 +549,7 @@ header .ellipsis::before {
 
 @media screen and (max-width: 767px) {
   .banner {
-    padding: 150px 0;
+    padding: 250px 0;
   }
 }
 
