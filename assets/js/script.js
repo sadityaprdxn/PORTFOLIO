@@ -1,51 +1,10 @@
 'use strict';
+import common from './common.js';
 
 window.onload = function () {
 	const page = document.querySelector('.container');
 
-	// for DOM manipulation
-	const html = document.querySelector('html');
-	const header = document.querySelector('header');
-	const hamburger = document.querySelector('.hamburger');
-	const navbar = document.querySelector('.navbar');
-	const ellipsis = document.querySelector('.ellipsis');
-	const socialLinks = document.querySelector('.social-links');
-	let navbarLinks = Array.from(document.querySelectorAll('ul.navbar li:not(:last-child) a'));
-	
-
-	// function for activating the social icons
-	ellipsis.addEventListener('click', () => {
-		ellipsis.parentElement.classList.toggle('active');
-		socialLinks.classList.toggle('active');
-	});
-
-	// function for closing the social icons
-	window.addEventListener('click', e => {
-		if (e.target !== ellipsis) {
-			ellipsis.parentElement.classList.remove('active');
-			socialLinks.classList.remove('active');
-		}
-	});
-
-	// function for activating the navbar
-	hamburger.addEventListener('click', () => {
-		hamburger.classList.toggle('active');
-		navbar.classList.toggle('active');
-		html.classList.toggle('no-scroll');
-		html.classList.remove('welcome-user');
-	});
-
-	// function for closing the navbar on click of the navbar links
-	navbarLinks.forEach(element => {
-		element.addEventListener('click', () => {
-			if (hamburger.classList.contains('active') || navbar.classList.contains('active')) {
-				html.classList.remove('no-scroll');
-				hamburger.classList.remove('active');
-				navbar.classList.remove('active');
-				html.classList.remove('welcome-user');
-			}
-		});
-	});
+	const reset = new common;
 
 	if (page.classList.contains('home-page')) {
 		console.log('hi');
@@ -60,10 +19,10 @@ window.onload = function () {
 		window.addEventListener('scroll', () => {
 			let pageAt = (window.scrollY + window.innerHeight);
 
-			if(window.scrollY > 0 && !header.classList.contains('active')) { 
-				header.classList.add('active');
+			if(window.scrollY > 0 && !reset.header.classList.contains('active')) { 
+				reset.header.classList.add('active');
 			} else if( window.scrollY === 0) {
-				header.classList.remove('active');
+				reset.header.classList.remove('active');
 			}
 
 			// condition for running the counter
@@ -137,5 +96,7 @@ window.onload = function () {
 				parent.classList = "form-group error"
 			}
 		}
+	} else if (page.classList.contains('portfolio-page')) {
+			
 	}
 }
