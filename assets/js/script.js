@@ -1,5 +1,6 @@
 'use strict';
 import common from './common.js';
+import data from './getData.js';
 
 window.onload = function () {
 	const page = document.querySelector('.container');
@@ -97,6 +98,32 @@ window.onload = function () {
 			}
 		}
 	} else if (page.classList.contains('portfolio-page')) {
+		let receiveData = new data;
+
+		let baseUrl = "https://raw.githubusercontent.com/sadityaprdxn/PORTFOLIO/master/assets/data/projectData.json";
+
+		receiveData.getData(baseUrl).then((data) => {
+			let imageArray = Array.from(document.querySelectorAll('.project-banner img'));
+
+			imageArray[0].setAttribute('src', data[0]['imageSourceDesktop']);
+			imageArray[1].setAttribute('src', data[0]['imageSourceMobile']);
+
+			let projectName = document.querySelector('.project-banner h3');
+
+			projectName.innerText = data[0]['projectName'];
+
+			let content = document.querySelector('.info p');
+
+			content.innerText = data[0]['content'];
+
+			let projectIoLink = document.querySelector('#github-io-link');
+			let projectRepoLink = document.querySelector('#github-repo-link');
+
+			projectIoLink.setAttribute('href', data[0]['githubIoLink']);
+			projectRepoLink.setAttribute('href', data[0]['githubLink']);
 			
+			projectIoLink.innerText = data[0]['githubIoLink'];
+			projectRepoLink.innerText = data[0]['githubLink'];
+		}).catch();
 	}
 }
