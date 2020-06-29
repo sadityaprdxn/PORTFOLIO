@@ -101,7 +101,7 @@ window.onload = function () {
 		let receiveData = new data;
 		let project = new URL(window.location.href).searchParams.get("projectid")
 
-		let baseUrl = "https://raw.githubusercontent.com/sadityaprdxn/PORTFOLIO/master/assets/data/projectData.json";
+		let baseUrl = "https://raw.githubusercontent.com/sadityaprdxn/PORTFOLIO/aster/assets/data/projectData.json";
 
 		receiveData.getData(baseUrl).then((data) => {
 			let projectData = null;
@@ -127,11 +127,20 @@ window.onload = function () {
 			projectIoLink.innerText = projectData['githubIoLink'];
 			projectRepoLink.innerText = projectData['githubLink'];
 
-		}).catch((err) => { console.log(err) });
+		}).catch((err) => { 
+			let imageArray = Array.from(document.querySelectorAll('.project-banner img'));
+			
+			imageArray[0].setAttribute('src', 'assets/images/error.png');
+			imageArray[1].setAttribute('src', 'assets/images/error.png');
+			document.querySelector('.project-banner h3').classList.add('none');
+			document.querySelector('.info').classList.add('none');
+			document.querySelector('footer').classList.add('none');
+
+			console.log(err);
+		});
 
 		// window on scroll functions
 		window.addEventListener('scroll', () => {
-			let pageAt = (window.scrollY + window.innerHeight);
 
 			if(window.scrollY > 0 && !reset.header.classList.contains('active')) { 
 				reset.header.classList.add('active');
