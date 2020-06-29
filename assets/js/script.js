@@ -99,31 +99,41 @@ window.onload = function () {
 		}
 	} else if (page.classList.contains('portfolio-page')) {
 		let receiveData = new data;
+		let project = new URL(window.location.href).searchParams.get("projectid")
 
 		let baseUrl = "https://raw.githubusercontent.com/sadityaprdxn/PORTFOLIO/master/assets/data/projectData.json";
 
 		receiveData.getData(baseUrl).then((data) => {
+			debugger;
+			let projectData = null;
+
+			for (let i = 0; i < data.length; i++) {
+				if (data[i]['projectId'] == project) {
+					projectData = data[i];
+				}
+			}
+
 			let imageArray = Array.from(document.querySelectorAll('.project-banner img'));
 
-			imageArray[0].setAttribute('src', data[0]['imageSourceDesktop']);
-			imageArray[1].setAttribute('src', data[0]['imageSourceMobile']);
+			imageArray[0].setAttribute('src', projectData['imageSourceDesktop']);
+			imageArray[1].setAttribute('src', projectData['imageSourceMobile']);
 
 			let projectName = document.querySelector('.project-banner h3');
 
-			projectName.innerText = data[0]['projectName'];
+			projectName.innerText = projectData['projectName'];
 
 			let content = document.querySelector('.info p');
 
-			content.innerText = data[0]['content'];
+			content.innerText = projectData['content'];
 
 			let projectIoLink = document.querySelector('#github-io-link');
 			let projectRepoLink = document.querySelector('#github-repo-link');
 
-			projectIoLink.setAttribute('href', data[0]['githubIoLink']);
-			projectRepoLink.setAttribute('href', data[0]['githubLink']);
+			projectIoLink.setAttribute('href', projectData['githubIoLink']);
+			projectRepoLink.setAttribute('href', projectData['githubLink']);
 			
-			projectIoLink.innerText = data[0]['githubIoLink'];
-			projectRepoLink.innerText = data[0]['githubLink'];
+			projectIoLink.innerText = projectData['githubIoLink'];
+			projectRepoLink.innerText = projectData['githubLink'];
 		}).catch();
 	}
 }
