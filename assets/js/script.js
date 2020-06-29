@@ -101,7 +101,7 @@ window.onload = function () {
 		let receiveData = new data;
 		let project = new URL(window.location.href).searchParams.get("projectid")
 
-		let baseUrl = "https://raw.githubusercontent.com/sadityaprdxn/PORTFOLIO/aster/assets/data/projectData.json";
+		let baseUrl = "https://raw.githubusercontent.com/sadityaprdxn/PORTFOLIO/master/assets/data/projectData.json";
 
 		receiveData.getData(baseUrl).then((data) => {
 			let projectData = null;
