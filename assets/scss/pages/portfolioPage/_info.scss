@@ -7,6 +7,27 @@
         margin: 50px 0;
         @include textcharacteristics($black, 15px, 400, normal);
         text-align: justify;
-        background-color: rgba(0,0,0,0.1);
+        background-color: rgba(0,0,0,0.02);
+    }
+
+    h4 {
+        text-align: center;
+        @include textcharacteristics($primaryColor, 20px, 800, uppercase);
+    }
+
+    a {
+        display: block;
+        margin: 10px 0;
+        padding: 7px;
+        border: 1px solid $red;
+        border-radius: 5px;
+        @include textcharacteristics( transparentize($white , 0.3), 12px, 800, uppercase);
+        text-align: center;
+        background-color: $red;
+        @include vendor(transition, 0.3s ease-in-out);
+
+        &:hover {
+            color: $white;
+        }
     }
 }

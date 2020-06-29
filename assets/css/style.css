@@ -1261,7 +1261,34 @@ h3 + span a {
   font-weight: 400;
   text-transform: normal;
   text-align: justify;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.info h4 {
+  text-align: center;
+  color: #333B50;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.info a {
+  display: block;
+  margin: 10px 0;
+  padding: 7px;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: red;
+  transition: 0.3s ease-in-out;
+}
+
+.info a:hover {
+  color: #FFF;
 }
 
 footer {
